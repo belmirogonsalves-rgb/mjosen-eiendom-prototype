@@ -11,8 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <!-- (No Leaflet on homepage — maps live on naering.html / bolig.html) -->
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
@@ -85,15 +84,12 @@
           </div>
 
           <div class="hero__visual" aria-hidden="true">
-            <div class="hero__img-block hero__img-block--main">
-              <span class="hero__img-label">Storgata, Gjøvik sentrum</span>
-            </div>
-            <div class="hero__img-block">
-              <span class="hero__img-label">Kontorlokaler</span>
-            </div>
-            <div class="hero__img-block">
-              <span class="hero__img-label">Bolig</span>
-            </div>
+            <div class="hero__img-block hero__img-block--main"
+                 style="background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80'); background-size: cover; background-position: center;"></div>
+            <div class="hero__img-block"
+                 style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'); background-size: cover; background-position: center;"></div>
+            <div class="hero__img-block"
+                 style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80'); background-size: cover; background-position: center;"></div>
           </div>
 
         </div>
@@ -152,51 +148,82 @@
 
 
     <!-- ══════════════════════════════════════════
-         NÆRINGSLOKALER
+         NÆRINGSLOKALER – featured 3
     ══════════════════════════════════════════════ -->
     <section class="section" id="naering" aria-labelledby="naering-heading">
       <div class="container">
 
         <div class="section-header">
           <span class="section-label">Utleie</span>
-          <h2 class="section-title" id="naering-heading">Næringslokaler</h2>
+          <h2 class="section-title" id="naering-heading">Utvalgte næringslokaler</h2>
           <p class="section-intro">Vi har et bredt utvalg av kontor- og butikklokaler sentralt i Gjøvik. Alle lokaler tilpasses leietagers behov.</p>
         </div>
 
-        <!-- Filter -->
-        <div class="filter-bar" role="group" aria-label="Filtrer næringslokaler etter type">
-          <button class="filter-chip active" data-filter-naering="alle"          aria-pressed="true">Alle</button>
-          <button class="filter-chip"        data-filter-naering="Kontor"        aria-pressed="false">Kontor</button>
-          <button class="filter-chip"        data-filter-naering="Butikk/Næring" aria-pressed="false">Butikk/Næring</button>
-          <button class="filter-chip"        data-filter-naering="Lager/Verksted" aria-pressed="false">Lager/Verksted</button>
-          <label class="filter-availability" for="naering-ledig-toggle">
-            <input type="checkbox" class="filter-toggle-input" id="naering-ledig-toggle" aria-label="Vis kun ledige næringslokaler">
-            <span>Kun ledig</span>
-          </label>
+        <div class="featured-grid">
+
+          <a href="property-telegrafen.html" class="featured-card"
+             aria-label="Telegrafen, Øvre Torvgate 26–28 – Kontor, 35–650 kvm">
+            <div class="featured-card__image">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                   alt="Telegrafen, Øvre Torvgate 26–28"
+                   loading="lazy">
+              <span class="badge badge--ledig">Ledig</span>
+            </div>
+            <div class="featured-card__body">
+              <div class="featured-card__type">Kontor</div>
+              <h3 class="featured-card__address">Telegrafen, Øvre Torvgate 26–28</h3>
+              <p class="featured-card__meta">35–650 kvm · Renovert 2024</p>
+              <p class="featured-card__desc">Rehabilitert signalbygg i Gjøvik sentrum. Moderne kontorlokaler over flere etasjer med fleksible størrelser.</p>
+              <span class="featured-card__cta">Se lokalet →</span>
+            </div>
+          </a>
+
+          <a href="property-storgata10.html" class="featured-card"
+             aria-label="Storgata 10 – Kontor, 15–450 kvm">
+            <div class="featured-card__image">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                   alt="Storgata 10, Gjøvik"
+                   loading="lazy">
+              <span class="badge badge--ledig">Ledig</span>
+            </div>
+            <div class="featured-card__body">
+              <div class="featured-card__type">Kontor</div>
+              <h3 class="featured-card__address">Storgata 10, Gjøvik</h3>
+              <p class="featured-card__meta">15–450 kvm · 1.–7. etasje · Renovert 2018</p>
+              <p class="featured-card__desc">Sentralt moderne kontorlokale i hjertet av Gjøvik sentrum. Fleksibelt areal over 7 etasjer – tilpasses leietagers behov.</p>
+              <span class="featured-card__cta">Se lokalet →</span>
+            </div>
+          </a>
+
+          <a href="property-storgata8.html" class="featured-card"
+             aria-label="Storgata 8 – Butikk/Næring, 15–400 kvm">
+            <div class="featured-card__image">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+                   alt="Storgata 8, Gjøvik"
+                   loading="lazy">
+              <span class="badge badge--ledig">Ledig</span>
+            </div>
+            <div class="featured-card__body">
+              <div class="featured-card__type">Butikk / Næring</div>
+              <h3 class="featured-card__address">Storgata 8, Gjøvik</h3>
+              <p class="featured-card__meta">15–400 kvm · 1.–4. etasje</p>
+              <p class="featured-card__desc">Kontor- og butikklokaler sentralt i Gjøvik. Inngang fra gateplan. Tilpasses enkelt til størrelse og behov.</p>
+              <span class="featured-card__cta">Se lokalet →</span>
+            </div>
+          </a>
+
         </div>
 
-        <!-- Explorer: list + map -->
-        <div class="property-explorer">
-
-          <div class="property-list"
-               id="naering-list"
-               role="list"
-               aria-live="polite"
-               aria-label="Liste over næringslokaler">
-            <!-- Rendered by script.js -->
-          </div>
-
-          <div class="map-panel" role="region" aria-label="Kart over Gjøvik med eiendommer">
-            <div id="property-map"></div>
-          </div>
-
+        <div class="section-footer">
+          <a href="naering.html" class="section-link">Se alle næringslokaler →</a>
         </div>
+
       </div>
     </section>
 
 
     <!-- ══════════════════════════════════════════
-         BOLIGER
+         BOLIGER – featured 3
     ══════════════════════════════════════════════ -->
     <section class="section section--alt" id="bolig" aria-labelledby="bolig-heading">
       <div class="container">
@@ -207,24 +234,63 @@
           <p class="section-intro">Sentralt beliggende leiligheter og hybler i Gjøvik sentrum – for deg som ønsker å bo midt i byen.</p>
         </div>
 
-        <!-- Filter -->
-        <div class="filter-bar" role="group" aria-label="Filtrer boliger etter type">
-          <button class="filter-chip active" data-filter-bolig="alle"        aria-pressed="true">Alle</button>
-          <button class="filter-chip"        data-filter-bolig="Leilighet"   aria-pressed="false">Leilighet</button>
-          <button class="filter-chip"        data-filter-bolig="Hybel"       aria-pressed="false">Hybel</button>
-          <button class="filter-chip"        data-filter-bolig="Smarthotell" aria-pressed="false">Smarthotell</button>
-          <label class="filter-availability" for="bolig-ledig-toggle">
-            <input type="checkbox" class="filter-toggle-input" id="bolig-ledig-toggle" aria-label="Vis kun ledige boliger">
-            <span>Kun ledig</span>
-          </label>
+        <div class="featured-grid">
+
+          <a href="bolig.html" class="featured-card"
+             aria-label="Tordenskioldsgate 11 – Leilighet, 2–4 rom">
+            <div class="featured-card__image">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
+                   alt="Tordenskioldsgate 11, Gjøvik"
+                   loading="lazy">
+              <span class="badge badge--ledig">Ledig</span>
+            </div>
+            <div class="featured-card__body">
+              <div class="featured-card__type">Leilighet</div>
+              <h3 class="featured-card__address">Tordenskioldsgate 11</h3>
+              <p class="featured-card__meta">2–4 roms leiligheter · Renovert 2021</p>
+              <p class="featured-card__desc">12 moderne leiligheter i rolig gate med kort gangavstand til Gjøvik sentrum.</p>
+              <span class="featured-card__cta">Se bolig →</span>
+            </div>
+          </a>
+
+          <a href="bolig.html" class="featured-card"
+             aria-label="Storgata 3 – Leilighet i toppetasjen">
+            <div class="featured-card__image">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
+                   alt="Storgata 3, toppetasje, Gjøvik"
+                   loading="lazy">
+              <span class="badge badge--ledig">Ledig</span>
+            </div>
+            <div class="featured-card__body">
+              <div class="featured-card__type">Leilighet</div>
+              <h3 class="featured-card__address">Storgata 3, toppetasje</h3>
+              <p class="featured-card__meta">60–80 kvm · Privat terrasse · Renovert 2015</p>
+              <p class="featured-card__desc">Lyst og romslig leilighet i toppetasjen med privat terrasse og utsikt over Gjøvik sentrum.</p>
+              <span class="featured-card__cta">Se bolig →</span>
+            </div>
+          </a>
+
+          <a href="bolig.html" class="featured-card"
+             aria-label="Storgata 8 – Leiligheter og hybler">
+            <div class="featured-card__image">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
+                   alt="Storgata 8, Gjøvik – leiligheter"
+                   loading="lazy">
+              <span class="badge badge--ledig">Ledig</span>
+            </div>
+            <div class="featured-card__body">
+              <div class="featured-card__type">Leilighet</div>
+              <h3 class="featured-card__address">Storgata 8, Gjøvik</h3>
+              <p class="featured-card__meta">20–110 kvm · Renovert 2016</p>
+              <p class="featured-card__desc">Sentralt beliggende leiligheter og hybler i varierende størrelser midt i Gjøvik sentrum.</p>
+              <span class="featured-card__cta">Se bolig →</span>
+            </div>
+          </a>
+
         </div>
 
-        <div class="bolig-grid"
-             id="bolig-list"
-             role="list"
-             aria-live="polite"
-             aria-label="Liste over boliger">
-          <!-- Rendered by script.js -->
+        <div class="section-footer">
+          <a href="bolig.html" class="section-link">Se alle boliger →</a>
         </div>
 
       </div>
@@ -590,66 +656,7 @@
   </footer>
 
 
-  <!-- ══════════════════════════════════════════
-       PROPERTY DETAIL MODAL
-  ══════════════════════════════════════════════ -->
-  <div class="modal-overlay"
-       id="modal-overlay"
-       role="dialog"
-       aria-modal="true"
-       aria-labelledby="modal-title"
-       aria-hidden="true">
-
-    <div class="modal" id="modal">
-
-      <button class="modal__close" id="modal-close" aria-label="Lukk detaljer">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 6 6 18M6 6l12 12"/>
-        </svg>
-      </button>
-
-      <!-- Image placeholder -->
-      <div class="modal__image" aria-hidden="true">
-        <span class="modal__image-label">Bilde kommer</span>
-      </div>
-
-      <div class="modal__body">
-
-        <!-- Eyebrow -->
-        <div class="modal__eyebrow">
-          <span class="badge badge--ledig" id="modal-badge">Ledig</span>
-          <span class="modal__type" id="modal-type"></span>
-        </div>
-
-        <h2 class="modal__title" id="modal-title"></h2>
-        <p class="modal__desc" id="modal-desc"></p>
-
-        <!-- Specs grid -->
-        <div class="modal__specs" id="modal-specs" aria-label="Eiendomsdetaljer"></div>
-
-        <!-- Facilities -->
-        <div class="modal__facilities" id="modal-facilities-wrap">
-          <div class="modal__facilities-title">Fasiliteter</div>
-          <div class="modal__facilities-list" id="modal-facilities"></div>
-        </div>
-
-        <!-- CTA -->
-        <div class="modal__cta">
-          <div>
-            <div class="modal__cta-label">Kontaktperson</div>
-            <div class="modal__cta-name"  id="modal-contact-name"></div>
-            <div class="modal__cta-phone" id="modal-contact-phone"></div>
-          </div>
-          <a href="#" class="btn btn--primary" id="modal-cta-btn">Ta kontakt</a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
   <!-- Scripts -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 
 </body>

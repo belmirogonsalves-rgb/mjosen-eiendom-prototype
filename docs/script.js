@@ -15,6 +15,19 @@ const PROPERTY_PAGE_LINKS = {
   'storgata-8-naering':           'property-storgata8.html',
 };
 
+// ── Type → image URL mapping ───────────────────────────────────
+const TYPE_IMAGES = {
+  'Kontor':          'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+  'Butikk/Næring':   'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
+  'Lager/Verksted':  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
+  'Leilighet':       'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
+  'Hybel':           'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
+  'Smarthotell':     'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
+};
+function getImageForType(type) {
+  return TYPE_IMAGES[type] || TYPE_IMAGES['Kontor'];
+}
+
 // ── State ──────────────────────────────────────────────────────
 const state = {
   properties:       [],
@@ -563,7 +576,7 @@ function buildNaeringCard(prop) {
     `${prop.address} – ${prop.type}${prop.sqm ? ', ' + prop.sqm : ''}`);
 
   const statusClass = prop.status === 'Ledig' ? 'badge--ledig' : 'badge--utleid';
-  const imgSrc = `https://picsum.photos/seed/${prop.id}/800/500`;
+  const imgSrc = getImageForType(prop.type);
 
   card.innerHTML = `
     <div class="property-card__image" aria-hidden="true">
@@ -634,7 +647,7 @@ function buildBoligCard(prop) {
     `${prop.address} – ${prop.type}${prop.sqm ? ', ' + prop.sqm : ''}`);
 
   const statusClass = prop.status === 'Ledig' ? 'badge--ledig' : 'badge--utleid';
-  const imgSrc = `https://picsum.photos/seed/${prop.id}/800/500`;
+  const imgSrc = getImageForType(prop.type);
 
   card.innerHTML = `
     <div class="property-card__image" aria-hidden="true">
@@ -739,6 +752,17 @@ function initModal() {
 
 function openModal(prop) {
   if (!modalOverlay) return;
+
+  // Set type-based hero image in modal
+  const modalImg = modalOverlay.querySelector('.modal__image');
+  if (modalImg) {
+    const imgUrl = getImageForType(prop.type);
+    modalImg.style.backgroundImage = `url('${imgUrl}')`;
+    modalImg.style.backgroundSize = 'cover';
+    modalImg.style.backgroundPosition = 'center';
+    const label = modalImg.querySelector('.modal__image-label');
+    if (label) label.style.display = 'none';
+  }
 
   const badge = document.getElementById('modal-badge');
   if (badge) {
