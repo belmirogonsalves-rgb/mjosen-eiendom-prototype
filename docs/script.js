@@ -36,29 +36,311 @@ const modalClose    = document.getElementById('modal-close');
 /* ══════════════════════════════════════════════════════════════
    BOOT
 ══════════════════════════════════════════════════════════════ */
-fetch('content/properties.json')
-  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-  .then(data => {
-    state.properties = data;
+const properties = [
+  {
+    "id": "telegrafen-oevre-torvgate-26",
+    "address": "Telegrafen, Øvre Torvgate 26–28, Gjøvik",
+    "type": "Kontor",
+    "category": "naering",
+    "sqm": "35–650 kvm",
+    "floors": "Flere etasjer",
+    "status": "Ledig",
+    "renovated": "2024",
+    "parking": "30 innendørs, 70 utendørs",
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd", "Heis"],
+    "description": "Telegrafen er et rehabilitert signalbygg i Gjøvik sentrum. Moderne kontorlokaler over flere etasjer med fleksible størrelser. Renovert i 2024.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7962, 10.6925],
+    "image": null
+  },
+  {
+    "id": "storgata-10-kontor",
+    "address": "Storgata 10, Gjøvik",
+    "type": "Kontor",
+    "category": "naering",
+    "sqm": "15–450 kvm",
+    "floors": "1.–7. etasje",
+    "status": "Ledig",
+    "renovated": "2018",
+    "parking": "30 innendørs, 20 utendørs",
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd", "Heis"],
+    "description": "Sentralt moderne kontorlokale i hjertet av Gjøvik sentrum. Fleksibelt areal over 7 etasjer – tilpasses leietagers behov.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7958, 10.6921],
+    "image": null
+  },
+  {
+    "id": "storgata-8-naering",
+    "address": "Storgata 8, Gjøvik",
+    "type": "Butikk/Næring",
+    "category": "naering",
+    "sqm": "15–400 kvm",
+    "floors": "1.–4. etasje",
+    "status": "Ledig",
+    "renovated": null,
+    "parking": "Nærhet til kommunalt parkeringshus",
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd", "Heis"],
+    "description": "Kontor- og butikklokaler sentralt i Gjøvik. Inngang fra gateplan. Lokalet kan enkelt tilpasses størrelse og behov.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7955, 10.6918],
+    "image": null
+  },
+  {
+    "id": "storgata-3-naering",
+    "address": "Storgata 3, Gjøvik",
+    "type": "Butikk/Næring",
+    "category": "naering",
+    "sqm": "50–500 kvm",
+    "floors": "1.–5. etasje",
+    "status": "Ledig",
+    "renovated": null,
+    "parking": "10 plasser",
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd", "Heis"],
+    "description": "Kontor- og butikklokaler i Storgata 3 med god synlighet og sentral beliggenhet. Fleksible størrelser over 5 etasjer.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7950, 10.6910],
+    "image": null
+  },
+  {
+    "id": "storgata-1-naering",
+    "address": "Storgata 1, Gjøvik",
+    "type": "Butikk/Næring",
+    "category": "naering",
+    "sqm": "85–130 kvm",
+    "floors": "1. etasje",
+    "status": "Ledig",
+    "renovated": null,
+    "parking": null,
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd"],
+    "description": "Butikklokale i 1. etasje med inngang fra Storgata. God eksponering og sentralt i gangtrafikken i Gjøvik sentrum.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7945, 10.6905],
+    "image": null
+  },
+  {
+    "id": "hunnsveien-5",
+    "address": "Hunnsveien 5, Gjøvik",
+    "type": "Butikk/Næring",
+    "category": "naering",
+    "sqm": "50–600 kvm",
+    "floors": "1.–5. etasje",
+    "status": "Ledig",
+    "renovated": null,
+    "parking": null,
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd", "Heis"],
+    "description": "Butikk- og kontorlokaler i Hunnsveien 5. Stort spenn i størrelser gjør eiendommen egnet for en rekke ulike leietakere.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7940, 10.6895],
+    "image": null
+  },
+  {
+    "id": "glassverksgata-5-naering",
+    "address": "Glassverksgata 5, Gjøvik",
+    "type": "Butikk/Næring",
+    "category": "naering",
+    "sqm": "35–250 kvm",
+    "floors": "1.–4. etasje",
+    "status": "Ledig",
+    "renovated": null,
+    "parking": null,
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd", "Heis"],
+    "description": "Butikk- og kontorlokaler i Glassverksgata 5, like ved Storgata. Sentral beliggenhet med gangavstand til det meste.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7952, 10.6912],
+    "image": null
+  },
+  {
+    "id": "fahlstromsplassen-1",
+    "address": "Fahlstrømsplassen 1, Gjøvik",
+    "type": "Kontor",
+    "category": "naering",
+    "sqm": "30–500 kvm",
+    "floors": "1.–5. etasje",
+    "status": "Ledig",
+    "renovated": null,
+    "parking": "7 plasser",
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd", "Heis"],
+    "description": "Kontorlokaler ved Fahlstrømsplassen i Gjøvik sentrum. Gode parkeringsmuligheter og enkel adkomst.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7948, 10.6900],
+    "image": null
+  },
+  {
+    "id": "hadelandsveien",
+    "address": "Hadelandsveien, Gjøvik",
+    "type": "Lager/Verksted",
+    "category": "naering",
+    "sqm": "15–2500 kvm",
+    "floors": "2 plan",
+    "status": "Ledig",
+    "renovated": null,
+    "parking": "ca. 50 plasser",
+    "facilities": ["Verksted", "Lager", "Kontor"],
+    "description": "Stort og fleksibelt næringsbygg med verksted, lager og kontorfasiliteter fordelt på to plan. Rikelig med parkering. Egnet for logistikk, håndverk og industri.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.8010, 10.7000],
+    "image": null
+  },
+  {
+    "id": "bryggeveien-7-9",
+    "address": "Bryggeveien 7–9, Gjøvik",
+    "type": "Kontor",
+    "category": "naering",
+    "sqm": "590 kvm næring + 160 kvm tilleggsbygg",
+    "floors": null,
+    "status": "Ledig",
+    "renovated": null,
+    "parking": "ca. 65 plasser",
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd"],
+    "description": "Kontor- og næringslokaler ved Mjøsa med sjeldent gode parkeringsmuligheter. Tilleggsbygg på 160 kvm inkludert.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7930, 10.6880],
+    "image": null
+  },
+  {
+    "id": "kontrollveien-3",
+    "address": "Kontrollveien 3, Gjøvik",
+    "type": "Lager/Verksted",
+    "category": "naering",
+    "sqm": "Kontorbygg 265 kvm + Verksted/lager 487 kvm",
+    "floors": null,
+    "status": "Ledig",
+    "renovated": null,
+    "parking": "30+ plasser",
+    "facilities": ["Verksted/lagerbygg", "Kontorbygg"],
+    "description": "Fleksibel eiendom med separat kontorbygg og verksted/lagerbygg. Godt egnet for håndverk, logistikk eller kombinert bruk.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7920, 10.6870],
+    "image": null
+  },
+  {
+    "id": "storgata-10-no10",
+    "address": "Storgata 10, Gjøvik – NO10 Kontorhotell",
+    "type": "Kontor",
+    "category": "naering",
+    "sqm": "Fleksibelt",
+    "floors": null,
+    "status": "Ledig",
+    "renovated": "2018",
+    "parking": "Tilgjengelig",
+    "facilities": ["Bredbånd", "Møterom", "Resepsjon", "Kantine"],
+    "description": "NO10 Kontorhotell tilbyr fleksibel kontorplass med alle fasiliteter inkludert. Ideelt for enkeltpersoner og mindre team som ønsker profesjonelle omgivelser uten langsiktige forpliktelser.",
+    "contact": { "name": "Eldar Sofienlund", "phone": "930 20 001", "email": "eldar@mjoseneiendom.no" },
+    "coordinates": [60.7960, 10.6923],
+    "image": null
+  },
+  {
+    "id": "gjoevik-overnatting",
+    "address": "Kyrre Grepps gate 23, Gjøvik",
+    "type": "Smarthotell",
+    "category": "bolig",
+    "sqm": "25–35 kvm",
+    "floors": null,
+    "status": "Ledig",
+    "renovated": "2005",
+    "parking": "30 plasser",
+    "facilities": ["Heis", "Ventilasjon", "Fiber/bredbånd"],
+    "description": "Gjøvik Overnatting er et moderne smarthotell sentralt i Gjøvik. Perfekt for forretningsreisende og besøkende til regionen.",
+    "contact": { "name": "Christoffer Beck", "phone": "943 78 000", "email": "christoffer@mjoseneiendom.no" },
+    "coordinates": [60.7966, 10.6930],
+    "image": null
+  },
+  {
+    "id": "glassverksgata-5-bolig",
+    "address": "Glassverksgata 5, Gjøvik",
+    "type": "Leilighet",
+    "category": "bolig",
+    "sqm": "60–100 kvm",
+    "floors": null,
+    "status": "Ledig",
+    "renovated": null,
+    "parking": null,
+    "facilities": ["Terrasse (noen enheter)", "Inntil 3 soverom"],
+    "description": "Leiligheter med og uten terrasse i Glassverksgata 5. Romslige enheter med opptil 3 soverom, sentralt i Gjøvik.",
+    "contact": { "name": "Christoffer Beck", "phone": "943 78 000", "email": "christoffer@mjoseneiendom.no" },
+    "coordinates": [60.7953, 10.6913],
+    "image": null
+  },
+  {
+    "id": "storgata-3-bolig",
+    "address": "Storgata 3, Gjøvik",
+    "type": "Leilighet",
+    "category": "bolig",
+    "sqm": "60–80 kvm",
+    "floors": "Toppetasje",
+    "status": "Ledig",
+    "renovated": "2015",
+    "parking": null,
+    "facilities": ["Terrasse", "Fiber/bredbånd"],
+    "description": "Leiligheter i toppetasjen i Storgata 3 med privat terrasse. Lyst og romslig med utsikt over Gjøvik sentrum.",
+    "contact": { "name": "Christoffer Beck", "phone": "943 78 000", "email": "christoffer@mjoseneiendom.no" },
+    "coordinates": [60.7951, 10.6911],
+    "image": null
+  },
+  {
+    "id": "storgata-1-bolig",
+    "address": "Storgata 1A, Gjøvik",
+    "type": "Leilighet",
+    "category": "bolig",
+    "sqm": "20–123 kvm",
+    "floors": null,
+    "status": "Ledig",
+    "renovated": "2013–2016",
+    "parking": null,
+    "facilities": ["Fiber/bredbånd"],
+    "description": "Leiligheter og hybler i varierende størrelser i Storgata 1A. Renovert i perioden 2013–2016. Sentralt og praktisk.",
+    "contact": { "name": "Christoffer Beck", "phone": "943 78 000", "email": "christoffer@mjoseneiendom.no" },
+    "coordinates": [60.7945, 10.6905],
+    "image": null
+  },
+  {
+    "id": "tordenskioldsgate-11",
+    "address": "Tordenskioldsgate 11, Gjøvik",
+    "type": "Leilighet",
+    "category": "bolig",
+    "sqm": null,
+    "floors": null,
+    "status": "Ledig",
+    "renovated": "2021",
+    "parking": null,
+    "facilities": ["Fiber/bredbånd", "12 leiligheter totalt"],
+    "description": "12 moderne leiligheter fra 2 til 4 rom, renovert i 2021. Rolig gate med kort gangavstand til Gjøvik sentrum.",
+    "contact": { "name": "Christoffer Beck", "phone": "943 78 000", "email": "christoffer@mjoseneiendom.no" },
+    "coordinates": [60.7970, 10.6930],
+    "image": null
+  },
+  {
+    "id": "storgata-8-bolig",
+    "address": "Storgata 8, Gjøvik",
+    "type": "Leilighet",
+    "category": "bolig",
+    "sqm": "20–110 kvm",
+    "floors": null,
+    "status": "Ledig",
+    "renovated": "2016",
+    "parking": null,
+    "facilities": ["Aircondition/Ventilasjon", "Bredbånd", "Heis"],
+    "description": "Sentralt beliggende leiligheter og hybler i Storgata 8. Varierende størrelser tilgjengelig, renovert i 2016.",
+    "contact": { "name": "Christoffer Beck", "phone": "943 78 000", "email": "christoffer@mjoseneiendom.no" },
+    "coordinates": [60.7954, 10.6917],
+    "image": null
+  }
+];
 
-    if (naeringList)                           { renderNaering(); }
-    if (boligList)                             { renderBolig();   }
-    if (document.getElementById('property-map'))  { initNaeringMap(); }
-    if (document.getElementById('kontakt-map'))   { initKontaktMap(); }
-    if (document.getElementById('single-pin-map')){ initSinglePinMap(); }
-    if (document.getElementById('map-naering'))   { initStorgata8Maps(); }
+state.properties = properties;
 
-    initFilters();
-    initModal();
-    initMobileNav();
-    setActiveNavLink();
-    initTabs();
-  })
-  .catch(err => {
-    console.error('Kunne ikke laste eiendommer:', err);
-    if (naeringList) naeringList.innerHTML =
-      '<p class="no-results">Kunne ikke laste eiendommer. Åpne via en lokal server.</p>';
-  });
+if (naeringList)                              { renderNaering(); }
+if (boligList)                               { renderBolig();   }
+if (document.getElementById('property-map'))   { initNaeringMap(); }
+if (document.getElementById('kontakt-map'))    { initKontaktMap(); }
+if (document.getElementById('single-pin-map')) { initSinglePinMap(); }
+if (document.getElementById('map-naering'))    { initStorgata8Maps(); }
+
+initFilters();
+initModal();
+initMobileNav();
+setActiveNavLink();
+initTabs();
 
 /* ══════════════════════════════════════════════════════════════
    NÆRING MAP  (#property-map — naering.html + index.html)
