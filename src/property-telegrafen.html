@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegrafen, Øvre Torvgate 26–28 – Mjøsen Eiendom</title>
+  <meta name="description" content="Rehabilitert signalbygg med moderne kontorlokaler i Gjøvik sentrum. Areal 35–650 kvm, fullrenovert 2024.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="site-logo" aria-label="Mjøsen Eiendom – tilbake til forsiden">
+        <img src="../assets/logo.png" alt="Mjøsen Eiendom" height="40" width="auto">
+      </a>
+      <nav class="site-nav" aria-label="Hovednavigasjon">
+        <ul class="site-nav__links" role="list">
+          <li><a href="naering.html"         class="site-nav__link active">Næringslokaler</a></li>
+          <li><a href="bolig.html"           class="site-nav__link">Bolig</a></li>
+          <li><a href="index.html#tjenester" class="site-nav__link">Tjenester</a></li>
+          <li><a href="index.html#om-oss"    class="site-nav__link">Om oss</a></li>
+          <li><a href="kontakt.html"         class="site-nav__link">Kontakt</a></li>
+        </ul>
+        <a href="tel:93020001" class="site-nav__phone" aria-label="Ring oss på 930 20 001">930 20 001</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Åpne navigasjonsmeny" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobilnavigasjon" aria-hidden="true">
+    <ul class="mobile-nav__links" role="list">
+      <li><a href="naering.html"         class="mobile-nav__link">Næringslokaler</a></li>
+      <li><a href="bolig.html"           class="mobile-nav__link">Bolig</a></li>
+      <li><a href="index.html#tjenester" class="mobile-nav__link">Tjenester</a></li>
+      <li><a href="index.html#om-oss"    class="mobile-nav__link">Om oss</a></li>
+      <li><a href="kontakt.html"         class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+    <a href="tel:93020001" class="mobile-nav__phone">930 20 001</a>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <div class="page-hero page-hero--tall" aria-label="Telegrafen, Øvre Torvgate 26–28">
+      <div class="page-hero__bg" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80');"></div>
+      <div class="page-hero__content">
+        <div class="container">
+          <span class="page-hero__eyebrow">Kontor · Gjøvik sentrum</span>
+          <h1 class="page-hero__title">Telegrafen</h1>
+          <p class="page-hero__subtitle">Øvre Torvgate 26–28, Gjøvik – rehabilitert signalbygg med moderne kontorlokaler. Fullrenovert 2024.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Brødsmulesti">
+          <span class="breadcrumb__item"><a href="naering.html">Næringslokaler</a></span>
+          <span class="breadcrumb__sep" aria-hidden="true">›</span>
+          <span class="breadcrumb__item breadcrumb__item--active">Telegrafen</span>
+        </nav>
+
+        <!-- Two-column layout -->
+        <div class="prop-layout">
+
+          <!-- Main content -->
+          <div class="prop-main">
+
+            <!-- Description -->
+            <div class="prop-section">
+              <h2 class="prop-section__title">Om eiendommen</h2>
+              <p class="prop-section__text">
+                Telegrafen er et rehabilitert signalbygg sentralt i Gjøvik. Bygget ble fullrenovert i 2024 og fremstår med moderne kontorfasiliteter over flere etasjer. Lokaler fra 35 til 650 kvm gjør Telegrafen til et godt alternativ for alt fra enkeltpersoner til større bedrifter.
+              </p>
+              <div class="prop-facilities" aria-label="Fasiliteter">
+                <span class="facility-tag">Aircondition/Ventilasjon</span>
+                <span class="facility-tag">Bredbånd</span>
+                <span class="facility-tag">Heis</span>
+              </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="prop-gallery" aria-label="Bilder av Telegrafen">
+              <div class="prop-gallery__img prop-gallery__img--main">
+                <img src="https://picsum.photos/seed/telegrafen1/1200/700"
+                     alt="Telegrafen, Øvre Torvgate 26–28 – innvendig"
+                     loading="lazy">
+              </div>
+              <div class="prop-gallery__img">
+                <img src="https://picsum.photos/seed/telegrafen2/800/500"
+                     alt="Kontorlandskap i Telegrafen"
+                     loading="lazy">
+              </div>
+              <div class="prop-gallery__img">
+                <img src="https://picsum.photos/seed/telegrafen3/800/500"
+                     alt="Fellesarealer i Telegrafen"
+                     loading="lazy">
+              </div>
+            </div>
+
+            <!-- Floor table -->
+            <div class="prop-section">
+              <h2 class="prop-section__title">Tilgjengelige arealer</h2>
+              <div class="floor-table-wrap">
+                <table class="floor-table" aria-label="Etasjeoversikt for Telegrafen">
+                  <thead>
+                    <tr>
+                      <th scope="col">Etasje</th>
+                      <th scope="col">Areal</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Pris</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1. etasje</td>
+                      <td>35–80 kvm</td>
+                      <td><span class="badge badge--ledig">Ledig</span></td>
+                      <td>Ta kontakt</td>
+                    </tr>
+                    <tr>
+                      <td>2. etasje</td>
+                      <td>100–200 kvm</td>
+                      <td><span class="badge badge--ledig">Ledig</span></td>
+                      <td>Ta kontakt</td>
+                    </tr>
+                    <tr>
+                      <td>3. etasje</td>
+                      <td>200–650 kvm</td>
+                      <td><span class="badge badge--ledig">Ledig</span></td>
+                      <td>Ta kontakt</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Parking info -->
+            <div class="prop-section">
+              <h2 class="prop-section__title">Parkering</h2>
+              <p class="prop-section__text">Eiendommen har 30 innendørs parkeringsplasser og 70 utendørs plasser tilknyttet eiendommen.</p>
+            </div>
+
+          </div>
+
+          <!-- Aside: specs + map + contact -->
+          <aside class="prop-aside">
+
+            <!-- Specs card -->
+            <div class="prop-specs-card">
+              <div class="prop-specs-card__header">
+                <span class="prop-specs-card__title">Telegrafen, Øvre Torvgate 26–28</span>
+                <span class="prop-specs-card__status">Ledig</span>
+              </div>
+              <div class="prop-specs-card__body">
+                <div class="prop-spec-row">
+                  <span class="prop-spec-label">Areal</span>
+                  <span class="prop-spec-value">35–650 kvm</span>
+                </div>
+                <div class="prop-spec-row">
+                  <span class="prop-spec-label">Type</span>
+                  <span class="prop-spec-value">Kontor</span>
+                </div>
+                <div class="prop-spec-row">
+                  <span class="prop-spec-label">Etasjer</span>
+                  <span class="prop-spec-value">Flere etasjer</span>
+                </div>
+                <div class="prop-spec-row">
+                  <span class="prop-spec-label">Renovert</span>
+                  <span class="prop-spec-value">2024</span>
+                </div>
+                <div class="prop-spec-row">
+                  <span class="prop-spec-label">Parkering</span>
+                  <span class="prop-spec-value">30 innendørs, 70 utendørs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Single-pin map -->
+            <div class="single-pin-map"
+                 id="single-pin-map"
+                 data-lat="60.7962"
+                 data-lng="10.6925"
+                 aria-label="Kart som viser Telegrafen, Øvre Torvgate 26–28 i Gjøvik">
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="contact-cta-block">
+              <div>
+                <div class="contact-cta-block__role">Daglig leder – Næringslokaler</div>
+                <div class="contact-cta-block__name">Eldar Sofienlund</div>
+                <div class="contact-cta-block__phone">
+                  <a href="tel:93020001">930 20 001</a>
+                </div>
+              </div>
+              <a href="tel:93020001" class="btn btn--primary">Ta kontakt</a>
+            </div>
+
+          </aside>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo"><img src="../assets/logo.png" alt="Mjøsen Eiendom" loading="lazy"></a>
+          <p class="footer-tagline">Gjøviks mest sentrale eiendomsaktør</p>
+        </div>
+        <div>
+          <div class="footer-col__heading">Snarveier</div>
+          <ul class="footer-links" role="list">
+            <li><a href="naering.html"         class="footer-link">Næringslokaler</a></li>
+            <li><a href="bolig.html"           class="footer-link">Bolig</a></li>
+            <li><a href="no10.html"            class="footer-link">NO10 Kontorhotell</a></li>
+            <li><a href="index.html#tjenester" class="footer-link">Mjøsen Minilager</a></li>
+            <li><a href="index.html#tjenester" class="footer-link">Gjøvik Overnatting</a></li>
+            <li><a href="index.html#om-oss"    class="footer-link">Om oss</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col__heading">Kontakt</div>
+          <div class="footer-contact-item"><a href="tel:93020001">930 20 001</a></div>
+          <div class="footer-contact-item"><a href="mailto:eldar@mjoseneiendom.no">eldar@mjoseneiendom.no</a></div>
+          <div class="footer-contact-item">Storgata 10, Gjøvik</div>
+        </div>
+        <div>
+          <div class="footer-col__heading">Selskapet</div>
+          <div class="footer-contact-item">Mjøsen Eiendom AS</div>
+          <div class="footer-contact-item">Org. nr. 989 289 330</div>
+          <div class="footer-contact-item">Myrveien 40, 1482 Nittedal</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025 Mjøsen Eiendom AS. Alle rettigheter forbeholdt.</p>
+        <p class="footer-legal">Org. nr. 989 289 330</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPdA=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>

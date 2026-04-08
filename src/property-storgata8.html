@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storgata 8 – Kontor, butikk og boliger – Mjøsen Eiendom</title>
+  <meta name="description" content="Storgata 8 tilbyr næringslokaler og boliger sentralt i Gjøvik. Butikklokale 450 kvm, kontor 15–400 kvm og leiligheter 20–110 kvm.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="site-logo" aria-label="Mjøsen Eiendom – tilbake til forsiden">
+        <img src="../assets/logo.png" alt="Mjøsen Eiendom" height="40" width="auto">
+      </a>
+      <nav class="site-nav" aria-label="Hovednavigasjon">
+        <ul class="site-nav__links" role="list">
+          <li><a href="naering.html"         class="site-nav__link active">Næringslokaler</a></li>
+          <li><a href="bolig.html"           class="site-nav__link">Bolig</a></li>
+          <li><a href="index.html#tjenester" class="site-nav__link">Tjenester</a></li>
+          <li><a href="index.html#om-oss"    class="site-nav__link">Om oss</a></li>
+          <li><a href="kontakt.html"         class="site-nav__link">Kontakt</a></li>
+        </ul>
+        <a href="tel:93020001" class="site-nav__phone" aria-label="Ring oss på 930 20 001">930 20 001</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Åpne navigasjonsmeny" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobilnavigasjon" aria-hidden="true">
+    <ul class="mobile-nav__links" role="list">
+      <li><a href="naering.html"         class="mobile-nav__link">Næringslokaler</a></li>
+      <li><a href="bolig.html"           class="mobile-nav__link">Bolig</a></li>
+      <li><a href="index.html#tjenester" class="mobile-nav__link">Tjenester</a></li>
+      <li><a href="index.html#om-oss"    class="mobile-nav__link">Om oss</a></li>
+      <li><a href="kontakt.html"         class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+    <a href="tel:93020001" class="mobile-nav__phone">930 20 001</a>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <div class="page-hero page-hero--tall" aria-label="Storgata 8, Gjøvik">
+      <div class="page-hero__bg" style="background-image: url('https://images.unsplash.com/photo-1555636222-cae831e670b3?w=1600&q=80');"></div>
+      <div class="page-hero__content">
+        <div class="container">
+          <span class="page-hero__eyebrow">Næring &amp; Bolig · Gjøvik sentrum</span>
+          <h1 class="page-hero__title">Storgata 8</h1>
+          <p class="page-hero__subtitle">Kontor, butikk og boliger – alt i én sentral eiendom midt i Gjøvik.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Brødsmulesti">
+          <span class="breadcrumb__item"><a href="naering.html">Næringslokaler</a></span>
+          <span class="breadcrumb__sep" aria-hidden="true">›</span>
+          <span class="breadcrumb__item breadcrumb__item--active">Storgata 8</span>
+        </nav>
+
+        <!-- Tab navigation -->
+        <div class="prop-tabs" role="tablist" aria-label="Velg seksjon">
+          <button class="prop-tab-btn active"
+                  data-tab-btn="naering"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-naering">
+            Næringslokaler
+          </button>
+          <button class="prop-tab-btn"
+                  data-tab-btn="bolig"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tab-bolig">
+            Boliger
+          </button>
+        </div>
+
+        <!-- ── TAB: Næring ── -->
+        <div id="tab-naering" data-tab-content="naering" role="tabpanel" aria-hidden="false">
+
+          <div class="prop-layout">
+            <div class="prop-main">
+
+              <div class="prop-section">
+                <h2 class="prop-section__title">Næringslokaler</h2>
+                <p class="prop-section__text">
+                  Tidligere lokalet til Industristua (Skostua) ligger sentralt til midt i Gjøvik sentrum. Inngang fra gateplan samt trapp ned i lokalet. Lokalet er ledig og kan enkelt tilpasses i størrelse ut fra leietagers ønsker og behov. Lokalet har 2 innganger samt heis.
+                </p>
+                <div class="prop-facilities" aria-label="Fasiliteter">
+                  <span class="facility-tag">Aircondition/Ventilasjon</span>
+                  <span class="facility-tag">Alarm</span>
+                  <span class="facility-tag">Bredbånd</span>
+                  <span class="facility-tag">Heis</span>
+                </div>
+              </div>
+
+              <!-- Gallery -->
+              <div class="prop-gallery" aria-label="Bilder av Storgata 8 næring">
+                <div class="prop-gallery__img prop-gallery__img--main">
+                  <img src="https://picsum.photos/seed/storgata8a/1200/700"
+                       alt="Storgata 8, Gjøvik – butikklokale"
+                       loading="lazy">
+                </div>
+                <div class="prop-gallery__img">
+                  <img src="https://picsum.photos/seed/storgata8b/800/500"
+                       alt="Interiør i næringslokale, Storgata 8"
+                       loading="lazy">
+                </div>
+                <div class="prop-gallery__img">
+                  <img src="https://picsum.photos/seed/storgata8c/800/500"
+                       alt="Gangarealer og fellesrom, Storgata 8"
+                       loading="lazy">
+                </div>
+              </div>
+
+              <!-- Beliggenhet -->
+              <div class="prop-section">
+                <h2 class="prop-section__title">Beliggenhet</h2>
+                <p class="prop-section__text">
+                  Eiendommen ligger i Storgata 8/Glassverksgata. Meget god beliggenhet med gangavstand til det meste. Enkel adkomst fra innfartsårer og kort vei til Gjøviks største kommunale parkeringshus.
+                </p>
+              </div>
+
+              <!-- Lokalenes innhold -->
+              <div class="prop-section">
+                <h2 class="prop-section__title">Lokalenes innhold</h2>
+                <p class="prop-section__text">Lokalene har et totalareal på 450 kvm og består av:</p>
+                <ul class="prop-section__list" aria-label="Hva lokalene inneholder">
+                  <li>Stort fellesareal/ekspedisjon</li>
+                  <li>1 stk minikjøkken</li>
+                  <li>WC</li>
+                  <li>Bod/lager</li>
+                  <li>Gangarealer</li>
+                  <li>Tilgang til fellesarealer som trapp og heis</li>
+                </ul>
+              </div>
+
+              <!-- Teknisk -->
+              <div class="prop-section">
+                <h2 class="prop-section__title">Teknisk</h2>
+                <ul class="prop-section__list" aria-label="Teknisk informasjon">
+                  <li>Internett via fiber</li>
+                  <li>Kjøling og oppvarming via balansert ventilasjonsanlegg</li>
+                  <li>Fjernvarme</li>
+                </ul>
+              </div>
+
+              <!-- Floor table -->
+              <div class="prop-section">
+                <h2 class="prop-section__title">Etasjeoversikt – næring</h2>
+                <div class="floor-table-wrap">
+                  <table class="floor-table" aria-label="Næringsetasjer i Storgata 8">
+                    <thead>
+                      <tr>
+                        <th scope="col">Etasje</th>
+                        <th scope="col">Areal</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1. etasje</td>
+                        <td>450 kvm</td>
+                        <td>Butikklokale</td>
+                        <td><span class="badge badge--ledig">Ledig</span></td>
+                      </tr>
+                      <tr>
+                        <td>2. etasje</td>
+                        <td>100–200 kvm</td>
+                        <td>Kontor</td>
+                        <td><span class="badge badge--ledig">Ledig</span></td>
+                      </tr>
+                      <tr>
+                        <td>3. etasje</td>
+                        <td>100–200 kvm</td>
+                        <td>Kontor</td>
+                        <td><span class="badge badge--ledig">Ledig</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Aside: næring specs -->
+            <aside class="prop-aside">
+              <div class="prop-specs-card">
+                <div class="prop-specs-card__header">
+                  <span class="prop-specs-card__title">Storgata 8 – Næring</span>
+                  <span class="prop-specs-card__status">Ledig</span>
+                </div>
+                <div class="prop-specs-card__body">
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Areal</span>
+                    <span class="prop-spec-value">450 kvm (butikk) / 15–400 kvm (kontor)</span>
+                  </div>
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Type</span>
+                    <span class="prop-spec-value">Kontor / Butikk</span>
+                  </div>
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Etasjer</span>
+                    <span class="prop-spec-value">1.–4. etasje</span>
+                  </div>
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Renovert</span>
+                    <span class="prop-spec-value">2012</span>
+                  </div>
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Overtagelse</span>
+                    <span class="prop-spec-value">November 2015</span>
+                  </div>
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Parkering</span>
+                    <span class="prop-spec-value">10 plasser + kommunalt parkeringshus</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="single-pin-map"
+                   id="map-naering"
+                   aria-label="Kart som viser Storgata 8 i Gjøvik">
+              </div>
+
+              <div class="contact-cta-block">
+                <div>
+                  <div class="contact-cta-block__role">Næringslokaler</div>
+                  <div class="contact-cta-block__name">Eldar Sofienlund</div>
+                  <div class="contact-cta-block__phone">
+                    <a href="tel:93020001">930 20 001</a>
+                  </div>
+                </div>
+                <a href="tel:93020001" class="btn btn--primary">Ta kontakt</a>
+              </div>
+            </aside>
+          </div>
+
+        </div><!-- /tab-naering -->
+
+
+        <!-- ── TAB: Bolig ── -->
+        <div id="tab-bolig" data-tab-content="bolig" role="tabpanel" aria-hidden="true" hidden>
+
+          <div class="prop-layout">
+            <div class="prop-main">
+
+              <div class="prop-section">
+                <h2 class="prop-section__title">Boliger</h2>
+                <p class="prop-section__text">
+                  Sentralt beliggende leiligheter og hybler i Storgata 8. Varierende størrelser fra hybler til større leiligheter. Alle enheter har tilgang til heis og fellesarealer. Renovert i 2016.
+                </p>
+                <div class="prop-facilities" aria-label="Fasiliteter">
+                  <span class="facility-tag">Aircondition/Ventilasjon</span>
+                  <span class="facility-tag">Bredbånd</span>
+                  <span class="facility-tag">Heis</span>
+                </div>
+              </div>
+
+              <!-- Gallery (reuse same images) -->
+              <div class="prop-gallery" aria-label="Bilder av Storgata 8 boliger">
+                <div class="prop-gallery__img prop-gallery__img--main">
+                  <img src="https://picsum.photos/seed/storgata8bolig1/1200/700"
+                       alt="Leilighet i Storgata 8, Gjøvik"
+                       loading="lazy">
+                </div>
+                <div class="prop-gallery__img">
+                  <img src="https://picsum.photos/seed/storgata8bolig2/800/500"
+                       alt="Stue i leilighet, Storgata 8"
+                       loading="lazy">
+                </div>
+                <div class="prop-gallery__img">
+                  <img src="https://picsum.photos/seed/storgata8bolig3/800/500"
+                       alt="Soverom i leilighet, Storgata 8"
+                       loading="lazy">
+                </div>
+              </div>
+
+              <div class="prop-section">
+                <h2 class="prop-section__title">Om boligene</h2>
+                <p class="prop-section__text">
+                  Eiendommen inneholder leiligheter og hybler i varierende størrelser fra 20 til 110 kvm. Alle enheter ble renovert i 2016 og har tilgang til heis, bredbånd og fellesarealer i bygget.
+                </p>
+                <p class="prop-section__text">
+                  Beliggenheten i Storgata 8 gir deg gangavstand til matbutikker, kollektivtransport og alle tilbud i Gjøvik sentrum.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Aside: bolig specs -->
+            <aside class="prop-aside">
+              <div class="prop-specs-card">
+                <div class="prop-specs-card__header">
+                  <span class="prop-specs-card__title">Storgata 8 – Boliger</span>
+                  <span class="prop-specs-card__status">Ledig</span>
+                </div>
+                <div class="prop-specs-card__body">
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Areal</span>
+                    <span class="prop-spec-value">20–110 kvm</span>
+                  </div>
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Type</span>
+                    <span class="prop-spec-value">Leiligheter / hybler</span>
+                  </div>
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Renovert</span>
+                    <span class="prop-spec-value">2016</span>
+                  </div>
+                  <div class="prop-spec-row">
+                    <span class="prop-spec-label">Fasiliteter</span>
+                    <span class="prop-spec-value">Heis, ventilasjon, bredbånd</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="single-pin-map"
+                   id="map-bolig"
+                   aria-label="Kart som viser Storgata 8 i Gjøvik">
+              </div>
+
+              <div class="contact-cta-block">
+                <div>
+                  <div class="contact-cta-block__role">Boligutleie</div>
+                  <div class="contact-cta-block__name">Christoffer Beck</div>
+                  <div class="contact-cta-block__phone">
+                    <a href="tel:94378000">943 78 000</a>
+                  </div>
+                </div>
+                <a href="tel:94378000" class="btn btn--primary">Ta kontakt</a>
+              </div>
+            </aside>
+          </div>
+
+        </div><!-- /tab-bolig -->
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo"><img src="../assets/logo.png" alt="Mjøsen Eiendom" loading="lazy"></a>
+          <p class="footer-tagline">Gjøviks mest sentrale eiendomsaktør</p>
+        </div>
+        <div>
+          <div class="footer-col__heading">Snarveier</div>
+          <ul class="footer-links" role="list">
+            <li><a href="naering.html"         class="footer-link">Næringslokaler</a></li>
+            <li><a href="bolig.html"           class="footer-link">Bolig</a></li>
+            <li><a href="no10.html"            class="footer-link">NO10 Kontorhotell</a></li>
+            <li><a href="index.html#tjenester" class="footer-link">Mjøsen Minilager</a></li>
+            <li><a href="index.html#tjenester" class="footer-link">Gjøvik Overnatting</a></li>
+            <li><a href="index.html#om-oss"    class="footer-link">Om oss</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col__heading">Kontakt</div>
+          <div class="footer-contact-item"><a href="tel:93020001">930 20 001</a></div>
+          <div class="footer-contact-item"><a href="mailto:eldar@mjoseneiendom.no">eldar@mjoseneiendom.no</a></div>
+          <div class="footer-contact-item">Storgata 10, Gjøvik</div>
+        </div>
+        <div>
+          <div class="footer-col__heading">Selskapet</div>
+          <div class="footer-contact-item">Mjøsen Eiendom AS</div>
+          <div class="footer-contact-item">Org. nr. 989 289 330</div>
+          <div class="footer-contact-item">Myrveien 40, 1482 Nittedal</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025 Mjøsen Eiendom AS. Alle rettigheter forbeholdt.</p>
+        <p class="footer-legal">Org. nr. 989 289 330</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPdA=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>

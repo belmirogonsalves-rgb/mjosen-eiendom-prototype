@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mjøsen Eiendom – Gjøviks mest sentrale eiendomsaktør</title>
+  <meta name="description" content="Mjøsen Eiendom leier ut kontor, butikk og bolig i hjertet av Gjøvik sentrum – med 90 leiekontrakter og 20 år i markedet.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+
+      <a href="#" class="site-logo" aria-label="Mjøsen Eiendom – tilbake til toppen">
+        <img src="../assets/logo.png" alt="Mjøsen Eiendom" height="40" width="auto">
+      </a>
+
+      <nav class="site-nav" aria-label="Hovednavigasjon">
+        <ul class="site-nav__links" role="list">
+          <li><a href="naering.html"      class="site-nav__link">Næringslokaler</a></li>
+          <li><a href="bolig.html"        class="site-nav__link">Bolig</a></li>
+          <li><a href="#tjenester"        class="site-nav__link">Tjenester</a></li>
+          <li><a href="#om-oss"           class="site-nav__link">Om oss</a></li>
+          <li><a href="kontakt.html"      class="site-nav__link">Kontakt</a></li>
+        </ul>
+        <a href="tel:93020001" class="site-nav__phone" aria-label="Ring oss på 930 20 001">930 20 001</a>
+      </nav>
+
+      <button class="nav-toggle"
+              aria-label="Åpne navigasjonsmeny"
+              aria-expanded="false"
+              aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobilnavigasjon" aria-hidden="true">
+    <ul class="mobile-nav__links" role="list">
+      <li><a href="naering.html"  class="mobile-nav__link">Næringslokaler</a></li>
+      <li><a href="bolig.html"    class="mobile-nav__link">Bolig</a></li>
+      <li><a href="#tjenester"    class="mobile-nav__link">Tjenester</a></li>
+      <li><a href="#om-oss"       class="mobile-nav__link">Om oss</a></li>
+      <li><a href="kontakt.html"  class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+    <a href="tel:93020001" class="mobile-nav__phone" aria-label="Ring oss">930 20 001</a>
+  </nav>
+
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════════ -->
+    <section class="hero" aria-label="Introduksjon">
+      <div class="container">
+        <div class="hero__inner">
+
+          <div class="hero__content">
+            <span class="hero__eyebrow">Gjøvik sentrum</span>
+            <h1 class="hero__title">Gjøviks mest sentrale eiendomsaktør</h1>
+            <p class="hero__subtitle">Vi leier ut kontor, butikk og bolig i hjertet av Gjøvik sentrum – med 90 leiekontrakter og 20 år i markedet.</p>
+            <div class="hero__actions">
+              <a href="naering.html" class="btn btn--primary">Se næringslokaler</a>
+              <a href="bolig.html"   class="btn btn--secondary">Se boliger</a>
+            </div>
+          </div>
+
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero__img-block hero__img-block--main">
+              <span class="hero__img-label">Storgata, Gjøvik sentrum</span>
+            </div>
+            <div class="hero__img-block">
+              <span class="hero__img-label">Kontorlokaler</span>
+            </div>
+            <div class="hero__img-block">
+              <span class="hero__img-label">Bolig</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         STATS STRIP
+    ══════════════════════════════════════════════ -->
+    <div class="stats-strip" aria-label="Nøkkeltall om Mjøsen Eiendom">
+      <div class="stats-strip__track" aria-hidden="true">
+        <!-- set A -->
+        <div class="stats-strip__item">
+          <span class="stats-strip__number">90</span>
+          <span class="stats-strip__label">leiekontrakter</span>
+        </div>
+        <div class="stats-strip__sep"></div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__number">7</span>
+          <span class="stats-strip__label">eiendommer i sentrum</span>
+        </div>
+        <div class="stats-strip__sep"></div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__number">Ca. 20 MNOK</span>
+          <span class="stats-strip__label">i årlige leieinntekter</span>
+        </div>
+        <div class="stats-strip__sep"></div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__number">Etablert 2005</span>
+          <span class="stats-strip__label">20 år i markedet</span>
+        </div>
+        <div class="stats-strip__sep"></div>
+        <!-- set B (duplicate for seamless loop) -->
+        <div class="stats-strip__item">
+          <span class="stats-strip__number">90</span>
+          <span class="stats-strip__label">leiekontrakter</span>
+        </div>
+        <div class="stats-strip__sep"></div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__number">7</span>
+          <span class="stats-strip__label">eiendommer i sentrum</span>
+        </div>
+        <div class="stats-strip__sep"></div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__number">Ca. 20 MNOK</span>
+          <span class="stats-strip__label">i årlige leieinntekter</span>
+        </div>
+        <div class="stats-strip__sep"></div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__number">Etablert 2005</span>
+          <span class="stats-strip__label">20 år i markedet</span>
+        </div>
+        <div class="stats-strip__sep"></div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
+         NÆRINGSLOKALER
+    ══════════════════════════════════════════════ -->
+    <section class="section" id="naering" aria-labelledby="naering-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label">Utleie</span>
+          <h2 class="section-title" id="naering-heading">Næringslokaler</h2>
+          <p class="section-intro">Vi har et bredt utvalg av kontor- og butikklokaler sentralt i Gjøvik. Alle lokaler tilpasses leietagers behov.</p>
+        </div>
+
+        <!-- Filter -->
+        <div class="filter-bar" role="group" aria-label="Filtrer næringslokaler etter type">
+          <button class="filter-chip active" data-filter-naering="alle"          aria-pressed="true">Alle</button>
+          <button class="filter-chip"        data-filter-naering="Kontor"        aria-pressed="false">Kontor</button>
+          <button class="filter-chip"        data-filter-naering="Butikk/Næring" aria-pressed="false">Butikk/Næring</button>
+          <button class="filter-chip"        data-filter-naering="Lager/Verksted" aria-pressed="false">Lager/Verksted</button>
+          <label class="filter-availability" for="naering-ledig-toggle">
+            <input type="checkbox" class="filter-toggle-input" id="naering-ledig-toggle" aria-label="Vis kun ledige næringslokaler">
+            <span>Kun ledig</span>
+          </label>
+        </div>
+
+        <!-- Explorer: list + map -->
+        <div class="property-explorer">
+
+          <div class="property-list"
+               id="naering-list"
+               role="list"
+               aria-live="polite"
+               aria-label="Liste over næringslokaler">
+            <!-- Rendered by script.js -->
+          </div>
+
+          <div class="map-panel" role="region" aria-label="Kart over Gjøvik med eiendommer">
+            <div id="property-map"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         BOLIGER
+    ══════════════════════════════════════════════ -->
+    <section class="section section--alt" id="bolig" aria-labelledby="bolig-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label">Boligutleie</span>
+          <h2 class="section-title" id="bolig-heading">Boliger</h2>
+          <p class="section-intro">Sentralt beliggende leiligheter og hybler i Gjøvik sentrum – for deg som ønsker å bo midt i byen.</p>
+        </div>
+
+        <!-- Filter -->
+        <div class="filter-bar" role="group" aria-label="Filtrer boliger etter type">
+          <button class="filter-chip active" data-filter-bolig="alle"        aria-pressed="true">Alle</button>
+          <button class="filter-chip"        data-filter-bolig="Leilighet"   aria-pressed="false">Leilighet</button>
+          <button class="filter-chip"        data-filter-bolig="Hybel"       aria-pressed="false">Hybel</button>
+          <button class="filter-chip"        data-filter-bolig="Smarthotell" aria-pressed="false">Smarthotell</button>
+          <label class="filter-availability" for="bolig-ledig-toggle">
+            <input type="checkbox" class="filter-toggle-input" id="bolig-ledig-toggle" aria-label="Vis kun ledige boliger">
+            <span>Kun ledig</span>
+          </label>
+        </div>
+
+        <div class="bolig-grid"
+             id="bolig-list"
+             role="list"
+             aria-live="polite"
+             aria-label="Liste over boliger">
+          <!-- Rendered by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         TJENESTER
+    ══════════════════════════════════════════════ -->
+    <section class="section" id="tjenester" aria-labelledby="tjenester-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label">Mer enn utleie</span>
+          <h2 class="section-title" id="tjenester-heading">Tjenester</h2>
+          <p class="section-intro">I tillegg til eiendomsutleie tilbyr vi fleksible løsninger for kontor, lagring og overnatting.</p>
+        </div>
+
+        <div class="tjenester-grid">
+
+          <!-- NO10 Kontorhotell -->
+          <article class="tjeneste-card" aria-label="NO10 Kontorhotell">
+            <div class="tjeneste-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <h3 class="tjeneste-card__title">NO10 Kontorhotell</h3>
+            <p class="tjeneste-card__desc">Fleksibel kontorplass med alle fasiliteter inkludert. NO10 ligger i Storgata 10 og er ideelt for frilansere, gründere og mindre team som ønsker profesjonelle omgivelser uten langsiktige forpliktelser.</p>
+            <div class="tjeneste-card__facilities" aria-label="Fasiliteter">
+              <span class="facility-tag">Møterom</span>
+              <span class="facility-tag">Resepsjon</span>
+              <span class="facility-tag">Bredbånd</span>
+              <span class="facility-tag">Kantine</span>
+              <span class="facility-tag">Fleksible leieperioder</span>
+            </div>
+            <div class="tjeneste-card__contact">
+              Eldar Sofienlund ·
+              <a href="tel:93020001">930 20 001</a> ·
+              <a href="mailto:eldar@mjoseneiendom.no">eldar@mjoseneiendom.no</a>
+            </div>
+            <a href="no10.html" class="btn btn--ghost" aria-label="Les mer om NO10 Kontorhotell">Les mer om NO10</a>
+          </article>
+
+          <!-- Mjøsen Minilager -->
+          <article class="tjeneste-card" aria-label="Mjøsen Minilager">
+            <div class="tjeneste-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3 class="tjeneste-card__title">Mjøsen Minilager</h3>
+            <p class="tjeneste-card__desc">Behov for vinterlagring eller mellomlagring i forbindelse med en flytting? Vi leier ut lager til privatpersoner og næringsdrivende for korte og lengre perioder. Romstørrelser fra 5 til 50 m².</p>
+            <div>
+              <p class="tjeneste-card__sub-label">Lokasjoner</p>
+              <p class="tjeneste-card__locations">Øvre Torvgate 26, Gjøvik<br>Storgata 10, Gjøvik</p>
+            </div>
+            <div class="tjeneste-card__facilities" aria-label="Fasiliteter">
+              <span class="facility-tag">Aircondition/Ventilasjon</span>
+              <span class="facility-tag">Alarm</span>
+              <span class="facility-tag">Bredbånd</span>
+              <span class="facility-tag">Heis</span>
+            </div>
+            <div class="tjeneste-card__contact">
+              Jan Vegar Rønningen ·
+              <a href="tel:97739395">977 39 395</a> ·
+              <a href="mailto:jan.vegar@mjoseneiendom.no">jan.vegar@mjoseneiendom.no</a>
+            </div>
+            <a href="mailto:jan.vegar@mjoseneiendom.no" class="btn btn--ghost" aria-label="Kontakt oss om lager">Kontakt oss om lager</a>
+          </article>
+
+          <!-- Gjøvik Overnatting -->
+          <article class="tjeneste-card" aria-label="Gjøvik Overnatting">
+            <div class="tjeneste-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h20"/>
+                <path d="M5 20V9.5a1 1 0 0 1 .4-.8l7-5.25a1 1 0 0 1 1.2 0l7 5.25a1 1 0 0 1 .4.8V20"/>
+                <path d="M9 20v-6h6v6"/>
+              </svg>
+            </div>
+            <h3 class="tjeneste-card__title">Gjøvik Overnatting</h3>
+            <p class="tjeneste-card__desc">Gjøvik Overnatting holder til i Kyrre Grepps gate 23 og tilbyr moderne, rimelige overnattingsrom midt i Gjøvik sentrum. Perfekt for forretningsreisende og besøkende til regionen.</p>
+            <div class="tjeneste-card__facilities" aria-label="Fasiliteter">
+              <span class="facility-tag">Smarthotell-konsept</span>
+              <span class="facility-tag">Heis</span>
+              <span class="facility-tag">Ventilasjon</span>
+              <span class="facility-tag">Fiberoptisk bredbånd</span>
+              <span class="facility-tag">30 parkeringsplasser</span>
+            </div>
+            <div class="tjeneste-card__contact">
+              Christoffer Beck ·
+              <a href="tel:94378000">943 78 000</a> ·
+              <a href="mailto:christoffer@mjoseneiendom.no">christoffer@mjoseneiendom.no</a>
+            </div>
+            <a href="https://gjoevik-overnatting.no"
+               class="btn btn--ghost"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Gå til gjøvik-overnatting.no (åpner i ny fane)">Se gjøvik-overnatting.no</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         OM OSS
+    ══════════════════════════════════════════════ -->
+    <section class="section section--alt" id="om-oss" aria-labelledby="om-oss-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label">Selskapet</span>
+          <h2 class="section-title" id="om-oss-heading">Om Mjøsen Eiendom</h2>
+        </div>
+
+        <div class="about-layout">
+
+          <!-- Left: text + stats -->
+          <div>
+            <div class="about-text">
+              <p>Mjøsen Eiendom AS ble stiftet i 2005, da de tre grunnleggerne kjøpte tre sentrale eiendommer i Gjøvik sentrum simultant: Storgata 3, Fahlstrøms Plass 1 og Storgata 10. Siden den gang har selskapet vokst til å bli Gjøviks ledende aktør innen utleie av næringseiendom og bolig.</p>
+              <p>I dag forvalter selskapet ca. 90 leiekontrakter fordelt på 7 eiendommer i sentrum, med samlede leieinntekter på omtrent 20 millioner kroner i året. Mjøsen Eiendom har gjennom årene vært en aktiv pådriver for by- og næringsutvikling i Gjøvik.</p>
+              <p>Selskapet eies i dag av Harald Martinsen og Geir Skari. Selskapet har eierandeler i flere utviklingsprosjekter i regionen, blant annet 21,9&nbsp;% i Farverikvartalet – et sentralt utviklingsprosjekt i Gjøvik sentrum.</p>
+            </div>
+
+            <div class="about-stats" aria-label="Nøkkeltall">
+              <div class="stat-block">
+                <div class="stat-block__number">2005</div>
+                <div class="stat-block__label">Etablert</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat-block__number">7</div>
+                <div class="stat-block__label">Eiendommer</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat-block__number">~90</div>
+                <div class="stat-block__label">Leiekontrakter</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat-block__number">20 M</div>
+                <div class="stat-block__label">NOK leieinntekter/år</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: team -->
+          <div class="team-grid" aria-label="Teamet">
+
+            <article class="team-card">
+              <div class="team-card__avatar" aria-hidden="true">GS</div>
+              <div>
+                <div class="team-card__role">Aktiv eier</div>
+                <h3 class="team-card__name">Geir Skari</h3>
+                <p class="team-card__desc">Geir har som aktiv eier bygd opp Mjøsen Eiendom til et lettdrevet og veldrevet eiendomsselskap. Han har bred erfaring fra eiendomsutvikling i Norge og internasjonalt, og har vært en sentral kraft i arbeidet med å fremme by- og næringsutvikling i Gjøvik sentrum.</p>
+                <div class="team-card__contact">
+                  <a href="mailto:geir@skari.no">geir@skari.no</a>
+                  <a href="tel:92063666">920 63 666</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <div class="team-card__avatar" aria-hidden="true">ES</div>
+              <div>
+                <div class="team-card__role">Daglig leder</div>
+                <h3 class="team-card__name">Eldar Sofienlund</h3>
+                <p class="team-card__desc">Eldar overtok som daglig leder i 2014 og har siden da stått for løpende dialog med leietakerne og all drift og forvaltning av eiendomsmassen. Han har bakgrunn fra lederstillinger i IT og telekom og har startet og solgt flere selskaper.</p>
+                <div class="team-card__contact">
+                  <a href="mailto:eldar@mjoseneiendom.no">eldar@mjoseneiendom.no</a>
+                  <a href="tel:93020001">930 20 001</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <div class="team-card__avatar" aria-hidden="true">JVR</div>
+              <div>
+                <div class="team-card__role">Vaktmester / Teknisk ansvarlig</div>
+                <h3 class="team-card__name">Jan Vegar Rønningen</h3>
+                <p class="team-card__desc">Jan Vegar sikrer godt vedlikehold av bygningsmasse og tekniske installasjoner. Han har vært med Mjøsen Eiendom i mange år og kjenner eiendommene ut og inn. Han er også ansvarlig for drift av Mjøsen Minilager.</p>
+                <div class="team-card__contact">
+                  <a href="mailto:jan.vegar@mjoseneiendom.no">jan.vegar@mjoseneiendom.no</a>
+                  <a href="tel:97739395">977 39 395</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <div class="team-card__avatar" aria-hidden="true">CB</div>
+              <div>
+                <div class="team-card__role">Hotellsjef / Boligutleie</div>
+                <h3 class="team-card__name">Christoffer Beck</h3>
+                <p class="team-card__desc">Christoffer er ansvarlig for Gjøvik Overnatting, all boligeiendom og boligutleie. Han er den du møter på visning i våre leiligheter, og han bistår Jan Vegar på vaktmesterfronten.</p>
+                <div class="team-card__contact">
+                  <a href="mailto:christoffer@mjoseneiendom.no">christoffer@mjoseneiendom.no</a>
+                  <a href="tel:94378000">943 78 000</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         KONTAKT
+    ══════════════════════════════════════════════ -->
+    <section class="section" id="kontakt" aria-labelledby="kontakt-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label">Ta kontakt</span>
+          <h2 class="section-title" id="kontakt-heading">Kontakt oss</h2>
+          <p class="section-intro">Ta gjerne kontakt med oss direkte – vi svarer raskt og hjelper deg å finne riktig lokale eller bolig.</p>
+        </div>
+
+        <div class="contact-layout">
+
+          <!-- Contact persons -->
+          <div class="contact-persons">
+
+            <div class="contact-person">
+              <div class="contact-person__avatar" aria-hidden="true">ES</div>
+              <div>
+                <div class="contact-person__role">Næringslokaler</div>
+                <div class="contact-person__name">Eldar Sofienlund</div>
+                <div class="contact-person__details">
+                  <a href="tel:93020001" aria-label="Ring Eldar Sofienlund: 930 20 001">930 20 001</a>
+                  <a href="mailto:eldar@mjoseneiendom.no">eldar@mjoseneiendom.no</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-person">
+              <div class="contact-person__avatar" aria-hidden="true">CB</div>
+              <div>
+                <div class="contact-person__role">Bolig &amp; overnatting</div>
+                <div class="contact-person__name">Christoffer Beck</div>
+                <div class="contact-person__details">
+                  <a href="tel:94378000" aria-label="Ring Christoffer Beck: 943 78 000">943 78 000</a>
+                  <a href="mailto:christoffer@mjoseneiendom.no">christoffer@mjoseneiendom.no</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-person">
+              <div class="contact-person__avatar" aria-hidden="true">JVR</div>
+              <div>
+                <div class="contact-person__role">Teknisk / Minilager</div>
+                <div class="contact-person__name">Jan Vegar Rønningen</div>
+                <div class="contact-person__details">
+                  <a href="tel:97739395" aria-label="Ring Jan Vegar Rønningen: 977 39 395">977 39 395</a>
+                  <a href="mailto:jan.vegar@mjoseneiendom.no">jan.vegar@mjoseneiendom.no</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Contact form (visual only) -->
+          <div class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="field-name">Navn</label>
+                <input type="text" id="field-name" class="form-control" placeholder="Ditt navn" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="field-phone">Telefon</label>
+                <input type="tel" id="field-phone" class="form-control" placeholder="Ditt telefonnummer" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-email">E-post</label>
+              <input type="email" id="field-email" class="form-control" placeholder="din@epost.no" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-subject">Hva gjelder henvendelsen?</label>
+              <select id="field-subject" class="form-control">
+                <option value="" disabled selected>Velg kategori</option>
+                <option value="naering">Næringslokale</option>
+                <option value="bolig">Bolig</option>
+                <option value="minilager">Minilager</option>
+                <option value="overnatting">Overnatting</option>
+                <option value="annet">Annet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-message">Melding</label>
+              <textarea id="field-message" class="form-control" placeholder="Beskriv hva du er på jakt etter…"></textarea>
+            </div>
+            <button type="button" class="btn btn--primary" style="width: 100%; justify-content: center;">
+              Send henvendelse
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Logo + tagline -->
+        <div>
+          <a href="#" class="footer-logo" aria-label="Mjøsen Eiendom">
+            <img src="../assets/logo.png" alt="Mjøsen Eiendom">
+          </a>
+          <p class="footer-tagline">Gjøviks mest sentrale eiendomsaktør</p>
+        </div>
+
+        <!-- Snarveier -->
+        <div>
+          <div class="footer-col__heading">Snarveier</div>
+          <ul class="footer-links" role="list">
+            <li><a href="naering.html"   class="footer-link">Næringslokaler</a></li>
+            <li><a href="bolig.html"     class="footer-link">Bolig</a></li>
+            <li><a href="no10.html"      class="footer-link">NO10 Kontorhotell</a></li>
+            <li><a href="#tjenester"     class="footer-link">Mjøsen Minilager</a></li>
+            <li><a href="#tjenester"     class="footer-link">Gjøvik Overnatting</a></li>
+            <li><a href="#om-oss"        class="footer-link">Om oss</a></li>
+          </ul>
+        </div>
+
+        <!-- Kontakt -->
+        <div>
+          <div class="footer-col__heading">Kontakt</div>
+          <div class="footer-contact-item"><a href="tel:93020001">930 20 001</a></div>
+          <div class="footer-contact-item"><a href="mailto:eldar@mjoseneiendom.no">eldar@mjoseneiendom.no</a></div>
+          <div class="footer-contact-item">Storgata 10, Gjøvik</div>
+        </div>
+
+        <!-- Juridisk -->
+        <div>
+          <div class="footer-col__heading">Selskapet</div>
+          <div class="footer-contact-item">Mjøsen Eiendom AS</div>
+          <div class="footer-contact-item">Org. nr. 989 289 330</div>
+          <div class="footer-contact-item">Myrveien 40, 1482 Nittedal</div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025 Mjøsen Eiendom AS. Alle rettigheter forbeholdt.</p>
+        <p class="footer-legal">Org. nr. 989 289 330</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════
+       PROPERTY DETAIL MODAL
+  ══════════════════════════════════════════════ -->
+  <div class="modal-overlay"
+       id="modal-overlay"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-title"
+       aria-hidden="true">
+
+    <div class="modal" id="modal">
+
+      <button class="modal__close" id="modal-close" aria-label="Lukk detaljer">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Image placeholder -->
+      <div class="modal__image" aria-hidden="true">
+        <span class="modal__image-label">Bilde kommer</span>
+      </div>
+
+      <div class="modal__body">
+
+        <!-- Eyebrow -->
+        <div class="modal__eyebrow">
+          <span class="badge badge--ledig" id="modal-badge">Ledig</span>
+          <span class="modal__type" id="modal-type"></span>
+        </div>
+
+        <h2 class="modal__title" id="modal-title"></h2>
+        <p class="modal__desc" id="modal-desc"></p>
+
+        <!-- Specs grid -->
+        <div class="modal__specs" id="modal-specs" aria-label="Eiendomsdetaljer"></div>
+
+        <!-- Facilities -->
+        <div class="modal__facilities" id="modal-facilities-wrap">
+          <div class="modal__facilities-title">Fasiliteter</div>
+          <div class="modal__facilities-list" id="modal-facilities"></div>
+        </div>
+
+        <!-- CTA -->
+        <div class="modal__cta">
+          <div>
+            <div class="modal__cta-label">Kontaktperson</div>
+            <div class="modal__cta-name"  id="modal-contact-name"></div>
+            <div class="modal__cta-phone" id="modal-contact-phone"></div>
+          </div>
+          <a href="#" class="btn btn--primary" id="modal-cta-btn">Ta kontakt</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPdA=" crossorigin=""></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
