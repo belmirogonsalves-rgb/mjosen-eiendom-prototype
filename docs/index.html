@@ -36,7 +36,7 @@
           <li><a href="#om-oss"           class="site-nav__link">Om oss</a></li>
           <li><a href="kontakt.html"      class="site-nav__link">Kontakt</a></li>
         </ul>
-        <a href="tel:93020001" class="site-nav__phone" aria-label="Ring oss på 930 20 001">930 20 001</a>
+        <a href="kontakt.html" class="site-nav__cta">Book visning</a>
       </nav>
 
       <button class="nav-toggle"
@@ -60,7 +60,7 @@
       <li><a href="#om-oss"       class="mobile-nav__link">Om oss</a></li>
       <li><a href="kontakt.html"  class="mobile-nav__link">Kontakt</a></li>
     </ul>
-    <a href="tel:93020001" class="mobile-nav__phone" aria-label="Ring oss">930 20 001</a>
+    <a href="kontakt.html" class="mobile-nav__phone">Book visning</a>
   </nav>
 
 
@@ -84,23 +84,42 @@
         </div>
       </div>
 
-      <!-- Stats bar pinned to bottom of hero -->
-      <div class="hero__stats" aria-label="Nøkkeltall om Mjøsen Eiendom">
-        <div class="hero__stat">
-          <span class="hero__stat-number">90</span>
-          <span class="hero__stat-label">Leiekontrakter</span>
-        </div>
-        <div class="hero__stat">
-          <span class="hero__stat-number">7</span>
-          <span class="hero__stat-label">Eiendommer i sentrum</span>
-        </div>
-        <div class="hero__stat">
-          <span class="hero__stat-number">Ca. 20 MNOK</span>
-          <span class="hero__stat-label">Årlige leieinntekter</span>
-        </div>
-        <div class="hero__stat">
-          <span class="hero__stat-number">Etablert 2005</span>
-          <span class="hero__stat-label">20 år i markedet</span>
+      <!-- Stats ticker pinned to bottom of hero -->
+      <div class="ticker-wrapper" aria-label="Nøkkeltall om Mjøsen Eiendom">
+        <div class="ticker-track">
+          <div class="hero__stat">
+            <span class="hero__stat-number">90</span>
+            <span class="hero__stat-label">Leiekontrakter</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number">7</span>
+            <span class="hero__stat-label">Eiendommer i sentrum</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number">Ca. 20 MNOK</span>
+            <span class="hero__stat-label">Årlige leieinntekter</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number">Etablert 2005</span>
+            <span class="hero__stat-label">20 år i markedet</span>
+          </div>
+          <!-- Duplicate set for seamless loop -->
+          <div class="hero__stat" aria-hidden="true">
+            <span class="hero__stat-number">90</span>
+            <span class="hero__stat-label">Leiekontrakter</span>
+          </div>
+          <div class="hero__stat" aria-hidden="true">
+            <span class="hero__stat-number">7</span>
+            <span class="hero__stat-label">Eiendommer i sentrum</span>
+          </div>
+          <div class="hero__stat" aria-hidden="true">
+            <span class="hero__stat-number">Ca. 20 MNOK</span>
+            <span class="hero__stat-label">Årlige leieinntekter</span>
+          </div>
+          <div class="hero__stat" aria-hidden="true">
+            <span class="hero__stat-number">Etablert 2005</span>
+            <span class="hero__stat-label">20 år i markedet</span>
+          </div>
         </div>
       </div>
 
@@ -183,7 +202,7 @@
 
 
     <!-- ══════════════════════════════════════════
-         BOLIGER – featured 3
+         BOLIGER – featured 4
     ══════════════════════════════════════════════ -->
     <section class="section section--alt" id="bolig" aria-labelledby="bolig-heading">
       <div class="container">
@@ -194,7 +213,7 @@
           <p class="section-intro">Sentralt beliggende leiligheter og hybler i Gjøvik sentrum – for deg som ønsker å bo midt i byen.</p>
         </div>
 
-        <div class="featured-grid">
+        <div class="featured-grid featured-grid--4col">
 
           <a href="bolig.html" class="featured-card"
              aria-label="Tordenskioldsgate 11 – Leilighet, 2–4 rom">
@@ -243,6 +262,23 @@
               <h3 class="featured-card__address">Storgata 8, Gjøvik</h3>
               <p class="featured-card__meta">20–110 kvm · Renovert 2016</p>
               <p class="featured-card__desc">Sentralt beliggende leiligheter og hybler i varierende størrelser midt i Gjøvik sentrum.</p>
+              <span class="featured-card__cta">Se bolig →</span>
+            </div>
+          </a>
+
+          <a href="bolig.html" class="featured-card"
+             aria-label="Storgata 1 – Hybler sentralt i Gjøvik">
+            <div class="featured-card__image">
+              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80"
+                   alt="Storgata 1, Gjøvik – hybler"
+                   loading="lazy">
+              <span class="badge badge--ledig">Ledig</span>
+            </div>
+            <div class="featured-card__body">
+              <div class="featured-card__type">Hybel</div>
+              <h3 class="featured-card__address">Storgata 1, Gjøvik</h3>
+              <p class="featured-card__meta">20–35 kvm · Møblert · Sentrum</p>
+              <p class="featured-card__desc">Praktiske og lyse hybler midt i Gjøvik sentrum – ideelt for studenter og pendlere.</p>
               <span class="featured-card__cta">Se bolig →</span>
             </div>
           </a>
@@ -609,7 +645,7 @@
 
       <div class="footer-bottom">
         <p class="footer-legal">© 2025 Mjøsen Eiendom AS. Alle rettigheter forbeholdt.</p>
-        <p class="footer-legal">Org. nr. 989 289 330</p>
+        <p class="footer-legal">Powered by Kilowott</p>
       </div>
 
     </div>

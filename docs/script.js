@@ -377,8 +377,11 @@ function initHeroNav() {
   const header = document.getElementById('site-header');
   if (!header || !header.classList.contains('site-header--transparent')) return;
 
+  const hero = document.querySelector('.hero');
+  const heroHeight = hero ? hero.offsetHeight : 200;
+
   function onScroll() {
-    if (window.scrollY > 60) {
+    if (window.scrollY > heroHeight) {
       header.classList.remove('site-header--transparent');
       header.classList.add('site-header--scrolled');
     } else {
@@ -689,8 +692,7 @@ function buildBoligCard(prop) {
     <div class="property-card__image" aria-hidden="true">
       <img src="${imgSrc}"
            alt="Bilde av ${prop.address}"
-           loading="lazy"
-           style="width:100%;height:100%;object-fit:cover;">
+           loading="lazy">
     </div>
     <div class="property-card__body">
       <div class="property-card__header">
@@ -702,6 +704,7 @@ function buildBoligCard(prop) {
         ${prop.sqm ? `<span class="property-card__meta-item">${prop.sqm}</span>` : ''}
       </div>
       <p class="property-card__desc">${prop.description}</p>
+      <span class="property-card__cta">Se bolig →</span>
     </div>`;
 
   card.addEventListener('click', () => openModal(prop));
