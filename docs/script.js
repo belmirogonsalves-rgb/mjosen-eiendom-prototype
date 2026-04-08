@@ -36,7 +36,7 @@ const modalClose    = document.getElementById('modal-close');
 /* ══════════════════════════════════════════════════════════════
    BOOT
 ══════════════════════════════════════════════════════════════ */
-fetch('../content/properties.json')
+fetch('content/properties.json')
   .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
   .then(data => {
     state.properties = data;
