@@ -15,17 +15,31 @@ const PROPERTY_PAGE_LINKS = {
   'storgata-8-naering':           'property-storgata8.html',
 };
 
-// ── Type → image URL mapping ───────────────────────────────────
-const TYPE_IMAGES = {
-  'Kontor':          'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-  'Butikk/Næring':   'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
-  'Lager/Verksted':  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-  'Leilighet':       'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
-  'Hybel':           'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
-  'Smarthotell':     'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
+// ── Property ID → unique Unsplash photo ───────────────────────
+const propertyImages = {
+  'telegrafen-oevre-torvgate-26': 'photo-1486325212027-8081e485255e',
+  'storgata-10-kontor':           'photo-1497366811353-6870744d04b2',
+  'storgata-8-naering':           'photo-1441986300917-64674bd600d8',
+  'storgata-3-naering':           'photo-1504307651254-35680f356dfd',
+  'storgata-1-naering':           'photo-1555636222-cae831e670b3',
+  'hunnsveien-5':                 'photo-1464938050520-ef2270bb8ce8',
+  'glassverksgata-5-naering':     'photo-1554435493-93422e8220c8',
+  'fahlstromsplassen-1':          'photo-1541888946425-d81bb19240f5',
+  'hadelandsveien':               'photo-1586528116311-ad8dd3c8310d',
+  'bryggeveien-7-9':              'photo-1510172951991-856a654063f9',
+  'kontrollveien-3':              'photo-1553522991-5b0b2a9a2a9b',
+  'storgata-10-no10':             'photo-1497366216548-37526070297c',
+  'gjoevik-overnatting':          'photo-1631049307264-da0ec9d70304',
+  'glassverksgata-5-bolig':       'photo-1545324418-cc1a3fa10c00',
+  'storgata-3-bolig':             'photo-1502672260266-1c1ef2d93688',
+  'storgata-1-bolig':             'photo-1493809842364-78817add7ffb',
+  'tordenskioldsgate-11':         'photo-1560448204-e02f11c3d0e2',
+  'storgata-8-bolig':             'photo-1484154218962-a197022b5858',
 };
-function getImageForType(type) {
-  return TYPE_IMAGES[type] || TYPE_IMAGES['Kontor'];
+function getImageForProperty(prop) {
+  const photoId = propertyImages[prop.id];
+  if (photoId) return `https://images.unsplash.com/${photoId}?w=800&q=80`;
+  return 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80';
 }
 
 // ── State ──────────────────────────────────────────────────────
@@ -354,6 +368,28 @@ initModal();
 initMobileNav();
 setActiveNavLink();
 initTabs();
+initHeroNav();
+
+/* ══════════════════════════════════════════════════════════════
+   HERO NAV — transparent at top, dark on scroll (index.html)
+══════════════════════════════════════════════════════════════ */
+function initHeroNav() {
+  const header = document.getElementById('site-header');
+  if (!header || !header.classList.contains('site-header--transparent')) return;
+
+  function onScroll() {
+    if (window.scrollY > 60) {
+      header.classList.remove('site-header--transparent');
+      header.classList.add('site-header--scrolled');
+    } else {
+      header.classList.add('site-header--transparent');
+      header.classList.remove('site-header--scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // set initial state
+}
 
 /* ══════════════════════════════════════════════════════════════
    NÆRING MAP  (#property-map — naering.html + index.html)
@@ -576,7 +612,7 @@ function buildNaeringCard(prop) {
     `${prop.address} – ${prop.type}${prop.sqm ? ', ' + prop.sqm : ''}`);
 
   const statusClass = prop.status === 'Ledig' ? 'badge--ledig' : 'badge--utleid';
-  const imgSrc = getImageForType(prop.type);
+  const imgSrc = getImageForProperty(prop);
 
   card.innerHTML = `
     <div class="property-card__image" aria-hidden="true">
@@ -647,7 +683,7 @@ function buildBoligCard(prop) {
     `${prop.address} – ${prop.type}${prop.sqm ? ', ' + prop.sqm : ''}`);
 
   const statusClass = prop.status === 'Ledig' ? 'badge--ledig' : 'badge--utleid';
-  const imgSrc = getImageForType(prop.type);
+  const imgSrc = getImageForProperty(prop);
 
   card.innerHTML = `
     <div class="property-card__image" aria-hidden="true">
@@ -756,7 +792,7 @@ function openModal(prop) {
   // Set type-based hero image in modal
   const modalImg = modalOverlay.querySelector('.modal__image');
   if (modalImg) {
-    const imgUrl = getImageForType(prop.type);
+    const imgUrl = getImageForProperty(prop);
     modalImg.style.backgroundImage = `url('${imgUrl}')`;
     modalImg.style.backgroundSize = 'cover';
     modalImg.style.backgroundPosition = 'center';

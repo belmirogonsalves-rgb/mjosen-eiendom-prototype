@@ -16,16 +16,16 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="has-hero">
 
   <!-- ══════════════════════════════════════════
        HEADER
   ══════════════════════════════════════════════ -->
-  <header class="site-header" role="banner">
+  <header class="site-header site-header--transparent" id="site-header" role="banner">
     <div class="container">
 
       <a href="#" class="site-logo" aria-label="Mjøsen Eiendom – tilbake til toppen">
-        <img src="../assets/logo.png" alt="Mjøsen Eiendom" height="40" width="auto">
+        <img src="assets/logo.png" alt="Mjøsen Eiendom" height="40" width="auto">
       </a>
 
       <nav class="site-nav" aria-label="Hovednavigasjon">
@@ -67,84 +67,44 @@
   <main>
 
     <!-- ══════════════════════════════════════════
-         HERO
+         HERO — Cinematic full-viewport
     ══════════════════════════════════════════════ -->
     <section class="hero" aria-label="Introduksjon">
-      <div class="container">
-        <div class="hero__inner">
 
-          <div class="hero__content">
-            <span class="hero__eyebrow">Gjøvik sentrum</span>
-            <h1 class="hero__title">Gjøviks mest sentrale eiendomsaktør</h1>
-            <p class="hero__subtitle">Vi leier ut kontor, butikk og bolig i hjertet av Gjøvik sentrum – med 90 leiekontrakter og 20 år i markedet.</p>
-            <div class="hero__actions">
-              <a href="naering.html" class="btn btn--primary">Se næringslokaler</a>
-              <a href="bolig.html"   class="btn btn--secondary">Se boliger</a>
-            </div>
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="hero__center">
+        <div class="hero__content">
+          <h1 class="hero__title">Gjøviks mest sentrale eiendomsaktør</h1>
+          <p class="hero__subtitle">Vi leier ut kontor, butikk og bolig i hjertet av Gjøvik sentrum – med 90 leiekontrakter og 20 år i markedet.</p>
+          <div class="hero__actions">
+            <a href="naering.html" class="btn btn--primary">Se næringslokaler</a>
+            <a href="bolig.html"   class="btn btn--outline-white">Se boliger</a>
           </div>
-
-          <div class="hero__visual" aria-hidden="true">
-            <div class="hero__img-block hero__img-block--main"
-                 style="background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80'); background-size: cover; background-position: center;"></div>
-            <div class="hero__img-block"
-                 style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'); background-size: cover; background-position: center;"></div>
-            <div class="hero__img-block"
-                 style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80'); background-size: cover; background-position: center;"></div>
-          </div>
-
         </div>
       </div>
+
+      <!-- Stats bar pinned to bottom of hero -->
+      <div class="hero__stats" aria-label="Nøkkeltall om Mjøsen Eiendom">
+        <div class="hero__stat">
+          <span class="hero__stat-number">90</span>
+          <span class="hero__stat-label">Leiekontrakter</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-number">7</span>
+          <span class="hero__stat-label">Eiendommer i sentrum</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-number">Ca. 20 MNOK</span>
+          <span class="hero__stat-label">Årlige leieinntekter</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-number">Etablert 2005</span>
+          <span class="hero__stat-label">20 år i markedet</span>
+        </div>
+      </div>
+
     </section>
-
-    <!-- ══════════════════════════════════════════
-         STATS STRIP
-    ══════════════════════════════════════════════ -->
-    <div class="stats-strip" aria-label="Nøkkeltall om Mjøsen Eiendom">
-      <div class="stats-strip__track" aria-hidden="true">
-        <!-- set A -->
-        <div class="stats-strip__item">
-          <span class="stats-strip__number">90</span>
-          <span class="stats-strip__label">leiekontrakter</span>
-        </div>
-        <div class="stats-strip__sep"></div>
-        <div class="stats-strip__item">
-          <span class="stats-strip__number">7</span>
-          <span class="stats-strip__label">eiendommer i sentrum</span>
-        </div>
-        <div class="stats-strip__sep"></div>
-        <div class="stats-strip__item">
-          <span class="stats-strip__number">Ca. 20 MNOK</span>
-          <span class="stats-strip__label">i årlige leieinntekter</span>
-        </div>
-        <div class="stats-strip__sep"></div>
-        <div class="stats-strip__item">
-          <span class="stats-strip__number">Etablert 2005</span>
-          <span class="stats-strip__label">20 år i markedet</span>
-        </div>
-        <div class="stats-strip__sep"></div>
-        <!-- set B (duplicate for seamless loop) -->
-        <div class="stats-strip__item">
-          <span class="stats-strip__number">90</span>
-          <span class="stats-strip__label">leiekontrakter</span>
-        </div>
-        <div class="stats-strip__sep"></div>
-        <div class="stats-strip__item">
-          <span class="stats-strip__number">7</span>
-          <span class="stats-strip__label">eiendommer i sentrum</span>
-        </div>
-        <div class="stats-strip__sep"></div>
-        <div class="stats-strip__item">
-          <span class="stats-strip__number">Ca. 20 MNOK</span>
-          <span class="stats-strip__label">i årlige leieinntekter</span>
-        </div>
-        <div class="stats-strip__sep"></div>
-        <div class="stats-strip__item">
-          <span class="stats-strip__number">Etablert 2005</span>
-          <span class="stats-strip__label">20 år i markedet</span>
-        </div>
-        <div class="stats-strip__sep"></div>
-      </div>
-    </div>
 
 
     <!-- ══════════════════════════════════════════
@@ -164,7 +124,7 @@
           <a href="property-telegrafen.html" class="featured-card"
              aria-label="Telegrafen, Øvre Torvgate 26–28 – Kontor, 35–650 kvm">
             <div class="featured-card__image">
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+              <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80"
                    alt="Telegrafen, Øvre Torvgate 26–28"
                    loading="lazy">
               <span class="badge badge--ledig">Ledig</span>
@@ -181,7 +141,7 @@
           <a href="property-storgata10.html" class="featured-card"
              aria-label="Storgata 10 – Kontor, 15–450 kvm">
             <div class="featured-card__image">
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+              <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80"
                    alt="Storgata 10, Gjøvik"
                    loading="lazy">
               <span class="badge badge--ledig">Ledig</span>
@@ -239,7 +199,7 @@
           <a href="bolig.html" class="featured-card"
              aria-label="Tordenskioldsgate 11 – Leilighet, 2–4 rom">
             <div class="featured-card__image">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
+              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
                    alt="Tordenskioldsgate 11, Gjøvik"
                    loading="lazy">
               <span class="badge badge--ledig">Ledig</span>
@@ -256,7 +216,7 @@
           <a href="bolig.html" class="featured-card"
              aria-label="Storgata 3 – Leilighet i toppetasjen">
             <div class="featured-card__image">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80"
                    alt="Storgata 3, toppetasje, Gjøvik"
                    loading="lazy">
               <span class="badge badge--ledig">Ledig</span>
@@ -273,7 +233,7 @@
           <a href="bolig.html" class="featured-card"
              aria-label="Storgata 8 – Leiligheter og hybler">
             <div class="featured-card__image">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
+              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80"
                    alt="Storgata 8, Gjøvik – leiligheter"
                    loading="lazy">
               <span class="badge badge--ledig">Ledig</span>
@@ -611,7 +571,7 @@
         <!-- Logo + tagline -->
         <div>
           <a href="#" class="footer-logo" aria-label="Mjøsen Eiendom">
-            <img src="../assets/logo.png" alt="Mjøsen Eiendom">
+            <img src="assets/logo.png" alt="Mjøsen Eiendom">
           </a>
           <p class="footer-tagline">Gjøviks mest sentrale eiendomsaktør</p>
         </div>
